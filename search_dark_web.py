@@ -17,7 +17,7 @@ def get_tor_session():
 
 def crawl(option, deeplinks, link, intexts, session):
     error=0
-    if option is "default":
+    if option == "default":
         length_of_web_links_to_crawl = len(deeplinks)
         iterations = 0
         
@@ -49,7 +49,7 @@ def crawl(option, deeplinks, link, intexts, session):
                             else:
                                 print("valid link, but have not '" + intexts + "' inside: \033[0;31m" + darklink + "\033[0m")   
                 iterations+=1      
-    if option is "all":
+    if option == "all":
         try:
             with timeout(10):
                 crawl = session.get(link)
@@ -94,7 +94,7 @@ def isValidOnionAdress(darklink,session):
                 maybevalid = session.get(isvalid) # can we connect to it?
         except:
             return False
-        if maybevalid.status_code is not 200:
+        if maybevalid.status_code != 200:
             return False
         else:
             return isvalid
@@ -204,7 +204,7 @@ if __name__ == "__main__":
         search_string = sys.argv[1]
         number_results = int(sys.argv[2])
         crawld = sys.argv[3]
-        if len(sys.argv) is 5:
+        if len(sys.argv) == 5:
             intext = sys.argv[4]
         else:
             intext = ""
