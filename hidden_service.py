@@ -18,7 +18,7 @@ def searchUnderDir(address,session):
             print(response.text)
             
 # Following prints your normal public IP
-print(requests.get("http://httpbin.org/ip").text)
+print(requests.get("http://httpbin.org/ip", timeout=60).text)
 
 # Make a request through the Tor connection
 # IP visible through Tor
